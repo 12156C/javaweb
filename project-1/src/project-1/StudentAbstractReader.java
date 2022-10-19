@@ -32,7 +32,7 @@ abstract class StudentAbstractReader implements IStudentReader {
         List<Student> students=new ArrayList<>();
         try(InputStreamReader inputStreamReader = new InputStreamReader(this.getInputStream()))
         {
-            try(BufferedReader reader=new BufferedReader(inputStreamReader))
+            try(BufferedReader reader=new BufferedReader(inputStreamReader))//读字节——》字符-》一行
             {
                 String line=null;
                 while((line= reader.readLine())!=null){
@@ -78,11 +78,13 @@ abstract class StudentAbstractReader implements IStudentReader {
         }
         return  students;
     };
+
+    //统一进行解析
     private Student createStudent(String line){
         String[] vals=line.split("\t");
         Student student=new Student();
         student.setID(vals[0]);
-        student.setChineseScore(vals[1]);
+        student.setChineseScore(vals[1]); //此时其他成绩没有值，为null
         return student;
     }
     private Student createStudent1(String line){

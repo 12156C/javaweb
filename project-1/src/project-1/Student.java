@@ -1,14 +1,20 @@
 package Practice1;
 
+//entity 实体类
+/*
+* 一个代码实体类会new很多对象
+*
+*
+* */
+
 public class Student {
     int MathScore;
     private String SwuID;
 
     String name;  // 通过函数接口访问
-
     int EnglishScore;
     int ChineseScore;
-    int AllScore;
+    int AllScore;//不是最本质的数据
     public Student(){
     }
     public Student(String SwuID,String name,String chineseScore,String mathScore,String englishScore,int allscore){

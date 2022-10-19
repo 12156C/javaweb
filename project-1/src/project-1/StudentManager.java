@@ -4,6 +4,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+// service class
+/*
+*
+*  一般只有一个
+* 设计模式：单例模式
+* 把构造函数设置为private
+* 在类的内部可以构造,设置为静态私有
+* 私有通过方法进行查看
+* 外部不可构造
+*
+*
+*
+* */
 public class StudentManager {
     private Map<String, Student> students = new HashMap<>();
     private Map<String, Student> getStudents() {
@@ -150,17 +163,20 @@ public class StudentManager {
                 });
         // 打印映射中的元素
         for(int i=0; i<list.size(); i++) {
-            System.out.println("第一名："+list.get(i).getValue());
+            System.out.println("第"+(i+1)+"名："+list.get(i).getValue());
         }
         return student1;
     }
     public void saveAs(String filePath) throws IOException {
         Map<String, Student> ss = this.getStudents();
         FileWriter writer = new FileWriter(filePath);
+        writer.write(String.format("%s\t, %s\t\t\t, %s\t, %s\t, %s\t, %s\t\n",
+                "姓名", "学号","语文成绩",
+                "数学成绩","英语成绩","总成绩"));
         for (Iterator<String> it = ss.keySet().iterator(); it.hasNext(); ) {
             String key = it.next();
             Student student = ss.get(key);
-            writer.write(String.format("%s, %s, %d, %d, %d, %d\n",
+            writer.write(String.format("%s\t, %s\t\t\t, %d\t, %d\t, %d\t, %d\t\n",
                     student.getName(), student.getID(),student.getChineseScore(),
                     student.getMathScore(),student.getEnglishScore(),student.getAllScore()));
         }

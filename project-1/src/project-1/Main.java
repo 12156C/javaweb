@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Main {
     private static StudentManager studentManager = null;
+
     public static void main(String[] args) throws IOException {
         Main main = new Main();
         main.startup("http://139.186.26.196/javaweb/data/chinese.txt");
@@ -18,6 +19,7 @@ public class Main {
     public void startup(String uri) throws IOException {
         List<Student> students = this.loadData(uri);
         this.studentManager = this.createManager(students);
+
     } //从网上下载下来的是列表类型的
    public void startup1(String uri) throws IOException {
         List<Student> students = this.loadData1(uri);
@@ -109,6 +111,7 @@ public class Main {
         System.out.println("*******************************************************************************************");
         System.out.println("现在查询平均成绩在90——100分范围之内的同学：");
         List<Student> average=this.studentManager.findByScore(90,100);
+        System.out.println("输出分数段范围列表"+average);
         System.out.println("*******************************************************************************************");
         System.out.println("现在按照总成绩进行排序：");
         List<Student> allScoreSort=this.studentManager.sortByTotal();
