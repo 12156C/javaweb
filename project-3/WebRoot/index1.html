@@ -1,0 +1,54 @@
+<html>
+
+    <head>
+        <title>My Java Web APP</title>
+    </head>
+
+    <body>
+        <center>
+            <h1>Welcome to my Java Web App</h1>
+
+            <a href="./colors?total=15&step=3&red=223&green=224&blue=252" target="_blank">color palettes 1</a><br>
+            <a href="./colors?total=15&step=3&red=123&green=224&blue=252" target="_blank">color palettes 2</a><br>
+            <a href="./colors?total=15&step=3&red=223&green=124&blue=252" target="_blank">color palettes 3</a><br>
+            <a href="./colors?total=15&step=3&red=223&green=224&blue=152" target="_blank">color palettes 4</a><br>
+            <a href="./colors?total=15&step=3&red=123&green=124&blue=152" target="_blank">color palettes 5</a><br>
+            <br>
+            <form action="./colors" method="post">
+                <!--
+                   action表示参数应该传给哪个函数处理
+                -->
+                Red:     <input type="text" value="255" name="red"><br>
+                Green:   <input type="text" value="230" name="green"><br>
+                Blue:    <input type="text" value="230" name="blue"><br><br><br>
+                <!--
+                    Total:   <input type="text" value="10"  name="total"><br>
+                -->
+                Total:
+                <select name="total">
+                    <option value="5">5个</option>
+                    <option value="8">8个</option>
+                    <option value="10">10个</option>
+                    <option value="12">12个</option>
+                </select><br><br><br>
+                <!--Step:    <input type="text" value="5"   name="step"><br>
+                -->
+                <!--
+                    checkbox :复选框
+                    radio :单选框
+                -->
+                1: <input type="radio" value="1" name="step"><br>
+                5: <input type="radio" value="5" name="step"><br>
+                50: <input type="radio" value="50" name="step"><br><br><br>
+
+                <textarea rows="5" cols="100" name="describe" ></textarea><br><br><br>
+
+                <input type="submit" value="creat color paletters" >
+            </form>
+
+        </center>
+
+
+    </body>
+
+</html>
