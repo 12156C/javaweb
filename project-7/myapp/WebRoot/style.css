@@ -1,0 +1,12 @@
+.book-group{
+    margin-left:15em;
+    background-color:#ccc;
+    float:left;
+    display:flex;
+    flex-wrap:row;
+}
+
+.book-div{
+    width:50%;
+    float:left;
+}
