@@ -46,9 +46,9 @@ public class Index extends HttpServlet {
                 "    <center style=\"margin-top:3em\">\n" +
                 "        <h1>欢迎访问我的网上书店</h1>\n" +
                 "        <div style=\"margin-top:4em;width:50%\">\n" +
-                "            <div>\n" +
-                "                <div style=\"float:left;padding-right:3em\"><a href=\"./listBook\">查看书目</a></div><br><br><br>\n" +
-                "            </div>\n" +
+//                "            <div>\n" +
+//                "                <div style=\"float:left;padding-right:3em\"><a href=\"./listBook\">查看书目</a></div><br><br><br>\n" +
+//                "            </div>\n" +
                 "        </div>\n" +
                 sb.toString()+
                 "            <br><br><br><br>\n" +

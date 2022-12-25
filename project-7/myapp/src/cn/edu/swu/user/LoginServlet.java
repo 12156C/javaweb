@@ -35,13 +35,24 @@ public class LoginServlet extends HttpServlet {
 
     }
 
-    private void doLogin(HttpServletRequest request, HttpServletResponse response){
+    private void doLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userName=request.getParameter("user");
         String password=request.getParameter("password");
+        String code=request.getParameter("code");
+
+        String verifyCode=(String) request.getSession(true).getAttribute(ValidateCodeServlet.LOGIN_VERIFY_CODE);
+        if(code==null || !code.equals(verifyCode)){
+            //不考虑大小写code.equalsIgnoreCase()
+            System.out.println("验证码错误");
+            response.sendRedirect("./login.html");
+            return;
+        }
+
         try {
             User user=UserRepo.getInstance().auth(userName,password);
             if(user!=null){
-                HttpSession session=request.getSession(true);
+                System.out.println("用户名密码正确");
+                HttpSession session=request.getSession();
                 session.setAttribute(LOGIN_TOKEN,Boolean.TRUE);
                 response.sendRedirect("./admin.html");
             } else{

@@ -46,7 +46,7 @@ public class ListBookServlet extends HttpServlet {
                 writer.write("</table><br><br>\n\n");
                 writer.write("</center>\n");
                 writer.write("<center>");
-                writer.write("<a href='index.html'>返回首页</a>");
+                writer.write("<a href='admin.html'>返回首页</a>");
                 writer.write("</center>\n");
             }
 
