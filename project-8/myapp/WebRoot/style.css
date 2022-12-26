@@ -1,0 +1,24 @@
+.book-group{
+    width:55%;
+    background-color:#ccc;
+    text-align:center;
+    margin-top:2em;
+}
+
+.book-div{
+    width:200px;
+    float:left;
+    margin-top:2em;
+}
+.book-name{
+    font-weight:bold;
+}
+
+.book-author{
+    font-color:#ccc;
+}
+
+.book-price{
+    font-weight:bold;
+    color:red;
+}
