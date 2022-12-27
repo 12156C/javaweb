@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Java Web App</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<center style="margin-top:5em">
+    <h1>欢迎访问我的网上书店</h1>
+    <div id="book-group" class="book-group">
+        <div class='book-div'>
+
+        </div>
+
+    </div>
+</center>
+
+<script>
+$(document).ready(function(){
+    $.getJSON("./api/books",function(books){
+        refreshBookList(books);
+    });
+});
+
+function refreshBookList(books){
+    for(var i=0;i<books.length;i++){
+       var book=books[i];
+       console.log(book);
+       $("#book-group").append(`
+            <div class='book-div'>
+                <div class='book-pic'><img src='./upload/${book.picture}' width=80%></div>
+                <div class='book-name'>《${book.name}》</div>
+                <div class='book-author'>${book.author}</div>
+                <div class='book-price'>价格: ${book.price}￥</div>
+            </div>
+       `)
+    }
+}
+</script>
+
+
+</body>
+</html>
