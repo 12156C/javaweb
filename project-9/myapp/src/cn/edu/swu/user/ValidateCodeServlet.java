@@ -41,7 +41,7 @@ public class ValidateCodeServlet  extends HttpServlet {
 
         BufferedImage image=new BufferedImage(width,height,BufferedImage.TYPE_3BYTE_BGR);
         Graphics g2d=image.getGraphics();
-        g2d.setColor(Color.LIGHT_GRAY);
+        g2d.setColor(Color.WHITE);
         g2d.fillRect(0,0,width,height);
 
         g2d.setColor(Color.GRAY);
@@ -50,7 +50,7 @@ public class ValidateCodeServlet  extends HttpServlet {
 
         Font font=new Font("Arial",Font.BOLD|Font.ITALIC,18);
         g2d.setFont(font);
-        g2d.setColor(Color.RED);
+        g2d.setColor(Color.decode("#8f438b"));
         g2d.drawString(code,20,28);
 
         return image;

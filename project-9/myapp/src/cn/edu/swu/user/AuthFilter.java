@@ -32,7 +32,7 @@ public class AuthFilter extends HttpFilter {
         }
 
         if(session==null){
-            response.sendRedirect("./login.html");
+            response.sendRedirect("./login-form-18/loginnow1.html");
             System.out.println("auth failed");
         } else{
             Boolean toke=(Boolean) session.getAttribute(LoginServlet.LOGIN_TOKEN);
@@ -40,7 +40,7 @@ public class AuthFilter extends HttpFilter {
                 System.out.println("登陆验证成功");
                 chain.doFilter(request,response);
             } else {
-                response.sendRedirect("./login.html");
+                response.sendRedirect("./login-form-18/loginnow1.html");
                 System.out.println("auth failed");
             }
         }

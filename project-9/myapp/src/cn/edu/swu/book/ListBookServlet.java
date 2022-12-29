@@ -19,7 +19,7 @@ public class ListBookServlet extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             try(Writer writer=response.getWriter()) {
                 writer.write(" <center style=\"margin-top:5em\">\n");
-                writer.write(" <h1>欢迎访问我的网上书店</h1>");
+                writer.write(" <h1>欢迎访问校会办公室物资清单</h1>");
 
                 writer.write("<table width='60%' border='0' cellpadding=4>");
                 //for (Book book:books){

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+
+
+	<header>
+		<!-- Intro settings -->
+		<style>
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 100px;
+      }
+    </style>
+
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<div class="container-fluid">
+				<!-- Navbar brand -->
+				<a class="navbar-brand" target="_blank" href="../index.html">
+					<img src="./images/logo.png" height="30" alt="" loading="lazy"
+						 style="margin-top: -3px;" />
+				</a>
+				<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+						aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+		</nav>
+		<!-- Navbar -->
+	</header>
+
+
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">西南大学学生会办公室物资系统</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+		      	<div class="icon d-flex align-items-center justify-content-center">
+		      		<span class="fa fa-user-o"></span>
+		      	</div>
+		      	<h3 class="text-center mb-4">注册账号</h3>
+						<form action="../register" class="login-form">
+		      		<div class="form-group">
+		      			<input name="user" type="text" class="form-control rounded-left" placeholder="用户名" required>
+		      		</div>
+	            <div class="form-group d-flex">
+	              <input name="password" type="password" class="form-control rounded-left" placeholder="密码" required>
+	            </div>
+							<div class="form-group d-flex">
+								<input type="text" name="code" class="form-control rounded-left" placeholder="验证码" required>
+								<img src="../verifyCode">
+							</div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+	            		<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#">注册账号</a>
+								</div>
+	            </div>
+	            <div class="form-group">
+<!--					<input type="submit" value="登 录" class="btn btn-primary rounded submit p-3 px-5">-->
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">登录</button>
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+

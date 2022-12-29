@@ -26,7 +26,9 @@ public class LoginServlet extends HttpServlet {
             this.doLogin(request,response);
         } else{
             HttpSession session=request.getSession();
-            if(session==null||session.getAttribute(LoginServlet.LOGIN_TOKEN)!=Boolean.TRUE){
+            System.out.println("登陆时：");
+            System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
+            if(session==null||session.getAttribute(LoginServlet.LOGIN_TOKEN)!="123"){
                 response.sendRedirect("./login.html");
             } else{
                 response.sendRedirect("./admin.html");
@@ -53,7 +55,7 @@ public class LoginServlet extends HttpServlet {
             if(user!=null){
                 System.out.println("用户名密码正确");
                 HttpSession session=request.getSession();
-                session.setAttribute(LOGIN_TOKEN,Boolean.TRUE);
+                session.setAttribute(LOGIN_TOKEN,"123");
                 response.sendRedirect("./admin.html");
             } else{
                 response.sendRedirect("./index-simple.html");

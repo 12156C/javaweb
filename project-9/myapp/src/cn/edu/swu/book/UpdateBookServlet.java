@@ -29,13 +29,13 @@ public class UpdateBookServlet extends HttpServlet {
                 "<body>\n" +
                 "    <center>\n" +
                 "      <div style=\"margin-top:5em;padding:2em;text-align:center;width:60%;background-color:#EEEEEE\"></div>\n" +
-                "        <h2>录入图书信息</h2>\n" +
+                "        <h2>录入物资信息</h2>\n" +
                 "        <form action=\"./saveBook\" method=\"post\" enctype=\"multipart/form-data\">\n" +
                 "          编号：<input type=\"text\" name=\"id\" value=\"" + book.getId()+"\"><br><br>\n  " +
-                "          书名：<input type=\"text\" name=\"name\" value=\"" + book.getName()+"\"><br><br>\n" +
-                "          作者：<input type=\"text\" name=\"author\" value=\"" + book.getAuthor()+"\"><br><br>\n" +
-                "          价格：<input type=\"text\" name=\"price\" value=\"" + book.getPrice()+"\"><br><br>\n" +
-                "          简介：<textarea name=\"describe\" rows=\"4\" cols=\"22\">" + book.getDescribe()+"</textarea><br><br>\n" +
+                "          名称：<input type=\"text\" name=\"name\" value=\"" + book.getName()+"\"><br><br>\n" +
+                "          位置：<input type=\"text\" name=\"author\" value=\"" + book.getAuthor()+"\"><br><br>\n" +
+                "          数量：<input type=\"text\" name=\"price\" value=\"" + book.getPrice()+"\"><br><br>\n" +
+                "          单位：<textarea name=\"describe\" rows=\"4\" cols=\"22\">" + book.getDescribe()+"</textarea><br><br>\n" +
                 "          <span style=\"padding-left:84px\"></span>图片：<input type=\"file\" name=\"picture\" width=\"100px\" value=\"" + book.getPicture()+"\"><br><br>\n" +
                 "          <input type=\"submit\" value=\"提 交 信 息\">\n" +
                 "        </form>\n" +
