@@ -36,6 +36,7 @@ public class ListBookApi extends HttpServlet {
 
     private void writeJsonByJackson(Writer writer,List<Book> books) throws IOException {
             String json=new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(books);
+            System.out.println(json);
             writer.write(json);
     }
 
