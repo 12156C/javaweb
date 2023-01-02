@@ -9,8 +9,15 @@ public class Object {
     private String describe;
     private String time1;
     private String time2;
-    private int deal;
+    private String deal;
+    private int tag;
 
+    public int getTag(){
+        return tag;
+    }
+    public void setTag(int num){
+        this.num=num;
+    }
     public int getNum(){
         return num;
     }
@@ -47,10 +54,10 @@ public class Object {
         this.org= author;
     }
 
-    public int getDeal(){
+    public String getDeal(){
         return deal;
     }
-    public void setDeal(int deal){
+    public void setDeal(String deal){
         this.deal= deal;
     }
 

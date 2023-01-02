@@ -65,19 +65,29 @@ $(document).ready(function(){
         refreshBookList(books);
     });
 });
+function addToCart(event){
+  var btn=$(event.target);
+  var bookId=btn.attr("bookId");
+  console.log(bookId);
+  $.getJSON("../../deleteBook?bookId="+bookId,function(message){
+     console.log(message);
+  });
+}
 
 function refreshBookList(books){
     for(var i=0;i<books.length;i++){
        var book=books[i];
        console.log(book);
        $("#book-group").append(`
+
       	 <tr>
 			<th scope="row" class="scope" >${book.name}</th>
 			<td>${book.author}</td>
 			<td>${book.price}${book.describe}</td>
-			<td><a href='../../deleteBook?id=%s'><img src="./images/edit.png" width="20"></a></td>
-			<td><a href='../../updateBook?id=%s'><img src="./images/delete.png" width="20"></a></td>
+			<td><a href='../../updateBook?id=%s'><img src="./images/edit.png" width="20"></a></td>
+			<td><a href="./list.html"><img src="./images/delete.png" width="20"  bookId ="${book.id}" onclick="addToCart(event)"></a></td>
 		</tr>
+
        `)
     }
 }

@@ -11,13 +11,12 @@ import java.sql.SQLException;
 @WebServlet("/deleteBook")
 public class DeleteBookServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id=request.getParameter("id");
+        String id=request.getParameter("bookId");
         try {
             BookRepo.getInstance().deleteBook(Long.valueOf(id));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        response.sendRedirect("./listBook");
+        response.sendRedirect("./borrow/table/list.html");
     }
 }

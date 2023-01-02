@@ -29,9 +29,9 @@ public class LoginServlet1 extends HttpServlet {
             this.doLogin(request,response);
         } else{
             HttpSession session=request.getSession();
-            if(session==null||session.getAttribute(LoginServlet1.LOGIN_TOKEN)!=Boolean.TRUE){
+            if(session==null||(session.getAttribute(LoginServlet1.LOGIN_TOKEN)!=Boolean.TRUE&&session.getAttribute(LoginServlet1.LOGIN_TOKEN)!="123")){
                 System.out.println("1");
-                response.sendRedirect("./loginnow.html");
+                response.sendRedirect("./login-form-18/loginnow.html");
             } else{
                 System.out.println("2");
                 response.sendRedirect("./jumbotron-template.html");
@@ -50,7 +50,7 @@ public class LoginServlet1 extends HttpServlet {
             System.out.println("3");
             //不考虑大小写code.equalsIgnoreCase()
             System.out.println("验证码错误");
-            response.sendRedirect("./loginnow.html");
+            response.sendRedirect("./login-form-18/loginnow.html");
             return;
         }
 

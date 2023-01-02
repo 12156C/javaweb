@@ -36,7 +36,7 @@ public class SaveObjectServlet extends HttpServlet {
         String user=request.getParameter("user");
         String time1=request.getParameter("time1");
         String time2=request.getParameter("time2");
-        int deal=Integer.valueOf(request.getParameter("deal"));
+        String deal=request.getParameter("deal");
 
         Object object=new Object();
         object.setName(name);

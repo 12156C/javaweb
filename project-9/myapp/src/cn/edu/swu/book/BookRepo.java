@@ -2,7 +2,6 @@ package cn.edu.swu.book;
 
 import cn.edu.swu.db.DBEngine;
 import cn.edu.swu.db.RecordVisitor;
-import cn.edu.swu.user.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,7 +79,22 @@ public class BookRepo {
 
         return books.size()==0?null:books.get(0);
     }
+    public List<Book> getByIds(List<Long> ids) throws SQLException {
+        String sql="SELECT * FROM `book` WHERE `id` IN (%s)";
+        String Strid="";
+        for(int i=0;i<ids.size();++i){
+            Strid+=((i>0)?",":"")+ids.get(i);
+        }
+        List<Book> books = DBEngine.getInstance().query(String.format(sql,Strid), new RecordVisitor<Book>() {
+//String.join(",",ids)用char
+            @Override
+            public Book visit(ResultSet rs) throws SQLException {
+                return BookRepo.getBookFromResultSet(rs);
+            }
+        });
 
+        return books;
+    }
     private static Book getBookFromResultSet(ResultSet rs) throws SQLException {
         Book book=new Book();
         book.setId(rs.getLong("id"));

@@ -91,7 +91,7 @@ public class ObjectRepo {
         object.setUser(rs.getString("user"));
         object.setTime1(rs.getString("time1"));
         object.setTime2(rs.getString("time1"));
-        object.setDeal(rs.getInt("deal"));
+        object.setDeal(rs.getString("deal"));
         return object;
     }
 
