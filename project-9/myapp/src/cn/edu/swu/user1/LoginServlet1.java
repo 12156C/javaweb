@@ -17,18 +17,39 @@ import java.sql.SQLException;
 public class LoginServlet1 extends HttpServlet {
     public final static String LOGIN_TOKEN="USER_LOGIN_TOKEN";
 
+
+
     public void doGet(HttpServletRequest request ,HttpServletResponse response) throws IOException {
+
         this.doPost(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userName=request.getParameter("user");
         String password=request.getParameter("password");
+        String remember=request.getParameter("remember");
+        System.out.println(remember);
+        HttpSession session=request.getSession();
+
+        if(remember==null){
+            System.out.println("-------------不保存--------------");
+            session.setAttribute("username","");
+            session.setAttribute("password","");
+        }else if(remember.equals("on")){
+            System.out.println("-------------已保存--------------");
+            System.out.println(userName);
+            System.out.println(password);
+            session.setAttribute("username",userName);
+            session.setAttribute("password",password);
+        }else {
+            session.setAttribute("username","");
+            session.setAttribute("password","");
+        }
 
         if(userName!=null&&password!=null){
             System.out.println("0");
             this.doLogin(request,response);
         } else{
-            HttpSession session=request.getSession();
+
             if(session==null||(session.getAttribute(LoginServlet1.LOGIN_TOKEN)!=Boolean.TRUE&&session.getAttribute(LoginServlet1.LOGIN_TOKEN)!="123")){
                 System.out.println("1");
                 response.sendRedirect("./login-form-18/loginnow.html");
@@ -45,6 +66,8 @@ public class LoginServlet1 extends HttpServlet {
         String password=request.getParameter("password");
         String code=request.getParameter("code");
 
+
+
         String verifyCode=(String) request.getSession(true).getAttribute(ValidateCodeServlet.LOGIN_VERIFY_CODE);
         if(code==null || !code.equals(verifyCode)){
             System.out.println("3");
@@ -53,13 +76,25 @@ public class LoginServlet1 extends HttpServlet {
             response.sendRedirect("./login-form-18/loginnow.html");
             return;
         }
-
         try {
             User1 user= UserRepo1.getInstance().auth(userName,password);
             if(user!=null){
                 System.out.println("4");
                 System.out.println("用户名密码正确");
                 HttpSession session=request.getSession();
+                System.out.println(session.getAttribute("remember"));
+                String remember=(String)session.getAttribute("remember");
+//                if(remember=="on"){
+//                    System.out.println("已保存");
+//                    session.setAttribute("username",userName);
+//                    session.setAttribute("password",password);
+//                }
+//                else{
+//                    System.out.println("未保存");
+//                    session.setAttribute("username","");
+//                    session.setAttribute("password","");
+//                }
+
                 System.out.println(userName);
                 if(userName.equals("admin")){
                     session.setAttribute(LOGIN_TOKEN,"123");
@@ -67,7 +102,6 @@ public class LoginServlet1 extends HttpServlet {
                 else{
                     session.setAttribute(LOGIN_TOKEN,Boolean.TRUE);
                 }
-                System.out.println("登录赋值");
                 System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
                 response.sendRedirect("./jumbotron-template.html");
             } else{

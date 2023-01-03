@@ -2,6 +2,8 @@ package cn.edu.swu.book;
 
 import cn.edu.swu.db.DBEngine;
 import cn.edu.swu.db.RecordVisitor;
+import cn.edu.swu.user.User;
+import cn.edu.swu.user.UserRepo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,6 +42,8 @@ public class BookRepo {
                 book.getAuthor(),book.getPrice(),book.getDescribe(),book.getPicture(),book.getId());
         DBEngine.getInstance().execute(sql);
     }
+
+
 
 
     public void deleteBook(Long id) throws SQLException {
@@ -95,6 +99,26 @@ public class BookRepo {
 
         return books;
     }
+    public Book getByName(String name) throws SQLException {
+        String template="SELECT * FROM `book` WHERE `name`= \"%s\"";
+        String sql=String.format(template,name);
+        System.out.println(sql);
+        List<Book> books=DBEngine.getInstance().query(sql, new RecordVisitor<Book>() {
+            @Override
+            public Book visit(ResultSet rs) throws SQLException {
+                return BookRepo.getBookFromResultSet(rs);
+            }
+        });
+        return books.size()==0?null:books.get(0);
+    }
+
+    public void changeBook(Book book,int borrow) throws SQLException {
+        String template="UPDATE `book` SET `price`= %s " +
+                "WHERE `id`=%s";
+        String sql=String.format(template,book.getPrice()-borrow,book.getId());
+        DBEngine.getInstance().execute(sql);
+    }
+
     private static Book getBookFromResultSet(ResultSet rs) throws SQLException {
         Book book=new Book();
         book.setId(rs.getLong("id"));

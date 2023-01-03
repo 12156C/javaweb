@@ -13,7 +13,9 @@ import java.util.List;
 @WebServlet("/updateBook")
 public class UpdateBookServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id=request.getParameter("id");
+        String id=request.getParameter("bookId");
+        System.out.println("------------现在输出id------------");
+        System.out.println(id);
         Book book=null;
         try {
             book=BookRepo.getInstance().getById(id);

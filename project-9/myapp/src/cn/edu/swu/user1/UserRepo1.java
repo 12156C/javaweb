@@ -1,5 +1,7 @@
 package cn.edu.swu.user1;
 
+import cn.edu.swu.book.Book;
+import cn.edu.swu.book.BookRepo;
 import cn.edu.swu.db.DBEngine;
 import cn.edu.swu.db.RecordVisitor;
 import cn.edu.swu.user.User;
@@ -54,6 +56,18 @@ public class UserRepo1 {
         return users.size()==0?null:users.get(0);
     }
 
+    public List<User1> getByName(String name) throws SQLException {
+        String template="SELECT * FROM `user1` WHERE `name`= \"%s\"";
+        String sql=String.format(template,name);
+        System.out.println(sql);
+        List<User1> user1s=DBEngine.getInstance().query(sql, new RecordVisitor<User1>() {
+            @Override
+            public User1 visit(ResultSet rs) throws SQLException {
+                return UserRepo1.getUserByResultSet(rs);
+            }
+        });
+        return user1s;
+    }
     private static User1 getUserByResultSet(ResultSet rs) throws SQLException {
         User1 user=new User1();
         user.setId(rs.getString("id"));

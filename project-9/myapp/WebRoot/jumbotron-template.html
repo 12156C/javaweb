@@ -48,34 +48,34 @@
                target="_blank" style="font-weight:bold; font-color:black">校会登录</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank" style="font-weight:bold; font-color:black">退出系统</a>
+            <a class="nav-link" href="./logout1" style="font-weight:bold; font-color:black">退出系统</a>
           </li>
         </ul>
 
-        <ul class="navbar-nav d-flex flex-row">
-          <!-- Icons -->
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-               target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-        </ul>
+<!--        <ul class="navbar-nav d-flex flex-row">-->
+<!--          &lt;!&ndash; Icons &ndash;&gt;-->
+<!--          <li class="nav-item me-3 me-lg-0">-->
+<!--            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"-->
+<!--               target="_blank">-->
+<!--              <i class="fab fa-youtube"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item me-3 me-lg-0">-->
+<!--            <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">-->
+<!--              <i class="fab fa-facebook-f"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item me-3 me-lg-0">-->
+<!--            <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">-->
+<!--              <i class="fab fa-twitter"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="nav-item me-3 me-lg-0">-->
+<!--            <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">-->
+<!--              <i class="fab fa-github"></i>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
       </div>
     </div>
   </nav>
@@ -134,6 +134,7 @@
           </li>
         </ul>
       </nav>
+    </section>
   </div>
 </main>
 <!--Main layout-->
@@ -143,12 +144,16 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 西南大学版权所有
-    <a class="text-dark" href="https://mdbootstrap.com/">www.swu.edu.cn</a>
+    Copyright © 2023 Designed and Developed by <a
+          href="https://github.com/12156C">LJC</a>
   </div>
   <!-- Copyright -->
 </footer>
 <!--Footer-->
+
+
+
+
 <!-- MDB -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <!-- Custom scripts -->
@@ -188,7 +193,7 @@ function refreshBookList(books){
                 <h5 class="card-title">${book.name}</h5>
                 <p class="card-text">位置:<font style="font-weight:bold"> ${book.author}</font> </p>
                 <p class="card-text">数量:<font color="red"> ${book.price}${book.describe}</font> </p>
-                <a href="./submit-object.html" class="btn btn-primary" bookId ="${book.id}" onclick="addToCart(event)">借用</a>
+                <a href="./submit-application.html" class="btn btn-primary" bookId ="${book.id}" onclick="addToCart(event)">借用</a>
               </div>
           </div>
        `)

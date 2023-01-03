@@ -21,43 +21,68 @@
 </head>
 
 <body>
-  <!-- header -->
-  <header class="shadow-bottom sticky-top bg-white">
-    <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container">
-        <a class="navbar-brand px-2" href="index.html">Dot</a>
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
-          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<!--Main Navigation-->
+<header>
+  <!-- Intro settings -->
+  <style>
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 100px;
+      }
+    </style>
 
-        <div class="collapse navbar-collapse text-center" id="navigation">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="faq.html">Faq</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="contact.html">contact</a>
-            </li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" href="single.html">Inner Page</a>
-						</li>
-          </ul>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="./index.html" style="font-weight:bold; font-color:black">首页</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav d-flex flex-row">
+          <!-- Icons -->
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
+               target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        </ul>
       </div>
-    </nav>
-  </header>
-  <!-- /header -->
+    </div>
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
 
   <!-- faq -->
   <section class="section pb-0">
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 class="section-title text-primary">Frequently Asked Questions</h2>
+          <h2 class="section-title text-primary">西南大学学生会办公室</h2>
           <!-- accordion -->
           <div id="accordion">
 
@@ -66,19 +91,17 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#will-updates-also-be-free">
-                  <span>Will updates also be free?</span> <i class="ti-plus text-primary text-right"></i>
+                  <span>关于西南大学学生会</span> <i class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="will-updates-also-be-free" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, <a href="https://examplesite.com">link</a>
-                  <em>ipsum</em> dolor sit amet consectetur adipisicing elit. Cumque praesentium nisi officiis maiores
-                  quia sapiente totam omnis vel sequi corporis ipsa incidunt reprehenderit recusandae maxime
-                  perspiciatis iste placeat architecto, mollitia delectus ut ab quibusdam. Magnam cumque numquam tempore
-                  reprehenderit illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui
-                  labore fugiat quod suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente
-                  atque quam vitae, magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid
-                  officiis sit error asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat
-                  omnis, placeat vitae laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  西南大学学生会是在中共西南大学委员会统一领导，
+                  校团委具体指导下开展工作的主要学生组织，
+                  是学校联系广大同学的主要桥梁和纽带，
+                  是尊重学生主体地位、完善学校内部治理结构的重要方面。
+                </div>
               </div>
             </div>
 
@@ -87,20 +110,15 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#discounts-for-students-and-non-profit-organizations">
-                  <span>Discounts for students and Non Profit Organizations?</span> <i
+                  <span>办公室是什么？</span> <i
                     class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="discounts-for-students-and-non-profit-organizations" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  我们是学生会重要的联结枢纽部门，主要职能包括文案、会务、物资、财务、外联等多个方面。
+                </div>
               </div>
             </div>
 
@@ -109,19 +127,17 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#i-need-something-unique-can-you-make-it">
-                  <span>I need something unique, Can you make it?</span> <i class="ti-plus text-primary text-right"></i>
+                  <span>加入我们能获得什么？</span> <i class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="i-need-something-unique-can-you-make-it" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  在学习公文撰写的过程中，你将不断提升写作能力，熟练掌握Word、Excel等办公软件的使用；
+                  在参与大型活动时，你将收获活动策划能力，成为办公室成长的见证者；
+                  时间分配能力、统筹协调能力、人际交往能力等等也不在话下。加入我们，你将轻松开启新技能的大门。
+                  与跨学院、跨年级的同学交流沟通，是我们的常态，你将遇到热心善良的学长学姐、结识与你志同道合的朋友。
+                </div>
               </div>
             </div>
 
@@ -130,19 +146,30 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#is-there-any-documentation-and-support">
-                  <span>Is there any documentation and support?</span> <i class="ti-plus text-primary text-right"></i>
+                  <span>我们负责什么？</span> <i class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="is-there-any-documentation-and-support" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  我们负责学生会大型会议、重大活动后勤保障工作以及内
+                  部例会的会务、秘书工作，保障学校学生代表大会、校园
+                  歌手大赛等大型会议和重大活动的顺利开展；负责建立落
+                  实学生会主席团和工作部门负责人述职评议制度，面向广大
+                  同学定期开展述职评议大会，确保述职评议制度落到实处；
+                  负责各二级学生会组织考核评价工作，二级学生会组织述职
+                  评选和改革评估工作，定期组织开展优秀学生会评选会、述
+                  职评议会及办公室部门负责人联席会议；负责与各高校保持
+                  联络和校内二级组织的沟通交流，目前与全国八十余所高校
+                  保持邮件往来，相互汲取学生会发展经验。同时，我们还负
+                  责校学生会财务及物资管理工作、学生会工作人员考核工作；
+                  负责各项规章制度、重要文稿的起草和日常文件的处理工作，
+                  起草《西南大学学生会组织改革实施方案》《关于规范开展二级
+                  学生会组织换届工作的通知》《西南大学学生会工作人员考核
+                  办法》等多个文件和各项规章制度、重要文稿。
+
+
+                </div>
               </div>
             </div>
 
@@ -151,19 +178,13 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#any-refunds">
-                  <span>Any refunds?</span> <i class="ti-plus text-primary text-right"></i>
+                  <span>我们的办公室地址</span> <i class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="any-refunds" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  校团委圆顶413办公室</div>
               </div>
             </div>
 
@@ -172,19 +193,13 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#what-is-a-product-key">
-                  <span>What is a product key?</span> <i class="ti-plus text-primary text-right"></i>
+                  <span>我们的官方邮箱</span> <i class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="what-is-a-product-key" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  swustudentunion@163.com</div>
               </div>
             </div>
 
@@ -193,42 +208,16 @@
               <div class="card-header rounded-0 bg-white border p-0 border-0">
                 <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
                   href="#where-do-i-download-the-file-to">
-                  <span>Where do I download the file to?</span> <i class="ti-plus text-primary text-right"></i>
+                  <span>负责人联系方式</span> <i class="ti-plus text-primary text-right"></i>
                 </a>
               </div>
               <div id="where-do-i-download-the-file-to" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
+                <div class="card-body font-secondary text-color">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                18830000357</div>
               </div>
             </div>
 
 
-            <div class="card mb-4 rounded-0 shadow border-0">
-              <div class="card-header rounded-0 bg-white border p-0 border-0">
-                <a class="card-link h4 d-flex tex-dark mb-0 py-3 px-4 justify-content-between" data-toggle="collapse"
-                  href="#what-happens-after-i-download">
-                  <span>What happens after I download?</span> <i class="ti-plus text-primary text-right"></i>
-                </a>
-              </div>
-              <div id="what-happens-after-i-download" class="collapse" data-parent="#accordion">
-                <div class="card-body font-secondary text-color">Lorem, ipsum dolor sit amet consectetur adipisicing
-                  elit. Cumque praesentium nisi officiis maiores quia sapiente totam omnis vel sequi corporis ipsa
-                  incidunt reprehenderit recusandae maxime perspiciatis iste placeat architecto, mollitia delectus <a
-                    href="https://examplesite.com">link</a> ut ab quibusdam. Magnam cumque numquam tempore reprehenderit
-                  illo, unde cum omnis vel sed temporibus, repudiandae impedit nam ad enim porro, qui labore fugiat quod
-                  suscipit fuga necessitatibus. Perferendis, ipsum? Cum, reprehenderit. Sapiente atque quam vitae,
-                  magnam dolore consequatur temporibus harum odit ab id quo qui aspernatur aliquid officiis sit error
-                  asperiores eveniet quibusdam, accusantium enim recusandae quas ea est! Quaerat omnis, placeat vitae
-                  laboriosam doloremque recusandae mollitia minima!</div>
-              </div>
-            </div>
 
           </div>
         </div>
@@ -237,30 +226,53 @@
   </section>
   <!-- /faq -->
 
-  <!-- footer -->
+<!--  &lt;!&ndash; footer &ndash;&gt;-->
+<!--  <footer class="section pb-4">-->
+<!--    <div class="container">-->
+<!--      <div class="row align-items-center">-->
+<!--        <div class="col-md-8 text-md-left text-center">-->
+<!--          <p class="mb-md-0 mb-4">Copyright © 2020 Designed and Developed by <a-->
+<!--              href="https://themefisher.com/">themefisher</a></p>-->
+<!--        </div>-->
+<!--        <div class="col-md-4 text-md-right text-center">-->
+<!--          <ul class="list-inline">-->
+<!--            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i-->
+<!--                  class="ti-facebook"></i></a></li>-->
+<!--            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i-->
+<!--                  class="ti-twitter-alt"></i></a></li>-->
+<!--            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-github"></i></a>-->
+<!--            </li>-->
+<!--            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i-->
+<!--                  class="ti-linkedin"></i></a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </footer>-->
+<!--  &lt;!&ndash; /footer &ndash;&gt;-->
+
   <footer class="section pb-4">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-8 text-md-left text-center">
-          <p class="mb-md-0 mb-4">Copyright © 2020 Designed and Developed by <a
-              href="https://themefisher.com/">themefisher</a></p>
+          <p class="mb-md-0 mb-4">Copyright © 2023 Designed and Developed by <a
+                  href="https://github.com/12156C">LJC</a></p>
         </div>
-        <div class="col-md-4 text-md-right text-center">
-          <ul class="list-inline">
-            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i
-                  class="ti-facebook"></i></a></li>
-            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i
-                  class="ti-twitter-alt"></i></a></li>
-            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-github"></i></a>
-            </li>
-            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i
-                  class="ti-linkedin"></i></a></li>
-          </ul>
-        </div>
+        <!--				<div class="col-md-4 text-md-right text-center">-->
+        <!--					<ul class="list-inline">-->
+        <!--						<li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i-->
+        <!--									class="ti-facebook"></i></a></li>-->
+        <!--						<li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i-->
+        <!--									class="ti-twitter-alt"></i></a></li>-->
+        <!--						<li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-github"></i></a>-->
+        <!--						</li>-->
+        <!--						<li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i-->
+        <!--									class="ti-linkedin"></i></a></li>-->
+        <!--					</ul>-->
+        <!--				</div>-->
       </div>
     </div>
   </footer>
-  <!-- /footer -->
 
   <!-- ** JS Plugins Needed for the Project ** -->
   <!-- jquiry -->

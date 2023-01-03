@@ -15,8 +15,8 @@ public class Object {
     public int getTag(){
         return tag;
     }
-    public void setTag(int num){
-        this.num=num;
+    public void setTag(int tag){
+        this.tag=tag;
     }
     public int getNum(){
         return num;

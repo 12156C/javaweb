@@ -22,7 +22,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="text-center mb-4">物资借取申请</h4>
+					<h4 class="text-center mb-4">物资信息管理</h4>
 					<div class="table-wrap">
 						<table class="table">
 					    <thead class="thead-primary">
@@ -47,6 +47,11 @@
 <!--					      </tr>-->
 					    </tbody>
 					  </table>
+					</div>
+					<br><br><br>
+					<div>
+						<a href="../../submit-book.html"><button class="btn btn-primary rounded submit p-3 px-5">添加物资</button></a>
+
 					</div>
 				</div>
 			</div>
@@ -73,18 +78,26 @@ function addToCart(event){
      console.log(message);
   });
 }
-
+function addToCart1(event){
+  var btn=$(event.target);
+  var bookId=btn.attr("bookId");
+  console.log(bookId);
+<!--  window.location.href="../../updateBook?bookId=${bookId}";-->
+<!--  $.getJSON("../../updateBook?bookId="+bookId,function(message){-->
+<!--     console.log(message);-->
+<!--  });-->
+}
 function refreshBookList(books){
     for(var i=0;i<books.length;i++){
        var book=books[i];
        console.log(book);
        $("#book-group").append(`
-
       	 <tr>
 			<th scope="row" class="scope" >${book.name}</th>
 			<td>${book.author}</td>
 			<td>${book.price}${book.describe}</td>
-			<td><a href='../../updateBook?id=%s'><img src="./images/edit.png" width="20"></a></td>
+			<td><a href="../../updateBook?bookId=${book.id}"><img src="./images/edit.png" width="20" bookId ="${book.id}" onclick="addToCart1(event)"></a></td>
+<!--			  -->
 			<td><a href="./list.html"><img src="./images/delete.png" width="20"  bookId ="${book.id}" onclick="addToCart(event)"></a></td>
 		</tr>
 

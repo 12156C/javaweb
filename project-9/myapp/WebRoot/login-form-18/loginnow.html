@@ -57,33 +57,42 @@
 		      		<span class="fa fa-user-o"></span>
 		      	</div>
 		      	<h3 class="text-center mb-4">校级组织</h3>
-						<form action="../login1" class="login-form">
-		      		<div class="form-group">
-		      			<input name="user" type="text" class="form-control rounded-left" placeholder="用户名" required>
-		      		</div>
-	            <div class="form-group d-flex">
-	              <input name="password" type="password" class="form-control rounded-left" placeholder="密码" required>
-	            </div>
-							<div class="form-group d-flex">
-								<input type="text" name="code" class="form-control rounded-left" placeholder="验证码" required>
-								<img src="../verifyCode">
-							</div>
-	            <div class="form-group d-md-flex">
-	            	<div class="w-50">
-	            		<label class="checkbox-wrap checkbox-primary">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="./register.html">注册账号</a>
-								</div>
-	            </div>
-	            <div class="form-group">
-<!--					<input type="submit" value="登 录" class="btn btn-primary rounded submit p-3 px-5">-->
-	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">登录</button>
-	            </div>
-	          </form>
+						<div id="remember">
+<!--							<form action="../login1"  class="login-form">-->
+
+
+<!--								<div class="form-group">-->
+<!--									<input name="user" type="text" class="form-control rounded-left" placeholder="用户名" required>-->
+<!--								</div>-->
+<!--								<div class="form-group d-flex">-->
+<!--									<input name="password" type="password" class="form-control rounded-left" placeholder="密码" required>-->
+<!--								</div>-->
+
+
+
+<!--								<div class="form-group d-flex">-->
+<!--									<input type="text" name="code" class="form-control rounded-left" placeholder="验证码" required>-->
+<!--									<img src="../verifyCode">-->
+<!--								</div>-->
+<!--								<div class="form-group d-md-flex">-->
+<!--									<div class="w-50">-->
+<!--										<label class="checkbox-wrap checkbox-primary">Remember Me-->
+<!--											<input onclick="chk(event)" type="checkbox" id="checkbox1" checked>-->
+
+<!--											<span class="checkmark"></span>-->
+<!--										</label>-->
+<!--									</div>-->
+<!--									<div class="w-50 text-md-right">-->
+<!--										<a href="./register.html">注册账号</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<div class="form-group">-->
+<!--									&lt;!&ndash;					<input type="submit" value="登 录" class="btn btn-primary rounded submit p-3 px-5">&ndash;&gt;-->
+<!--									<button  type="submit" class="btn btn-primary rounded submit p-3 px-5">登录</button>-->
+<!--								</div>-->
+<!--							</form>-->
+						</div>
+
 	        </div>
 				</div>
 			</div>
@@ -96,5 +105,91 @@
   <script src="js/main.js"></script>
 
 	</body>
+<script>
+$(document).ready(function(){
+	$.getJSON("../api/remember1",function(user1s){
+	console.log(user1s[0]);
+			refreshBookList(user1s);
+	});
+});
+function refreshBookList(user1s){
+	   var user1=user1s[0];
+       console.log(user1);
+       $("#remember").append(`
+			<form action="../login1"  class="login-form">
+								<div class="form-group">
+									<input value="${user1.user}" name="user" type="text" class="form-control rounded-left" placeholder="用户名" required>
+								</div>
+								<div class="form-group d-flex">
+									<input value="${user1.password}" name="password" type="password" class="form-control rounded-left" placeholder="密码" required>
+								</div>
+								<div class="form-group d-flex">
+									<input type="text" name="code" class="form-control rounded-left" placeholder="验证码" required>
+									<img src="../verifyCode">
+								</div>
+								<div class="form-group d-md-flex">
+									<div class="w-50">
+										<label class="checkbox-wrap checkbox-primary">Remember Me
+											<input name="remember" onclick="chk(event)" type="checkbox" id="checkbox1" checked>
+
+											<span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="./register.html">注册账号</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<!--					<input type="submit" value="登 录" class="btn btn-primary rounded submit p-3 px-5">-->
+									<button  type="submit" class="btn btn-primary rounded submit p-3 px-5">登录</button>
+								</div>
+							</form>
+     `)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--function login(){-->
+<!--     localStorage.remember = "Yes"-->
+<!--     var data=localStorage.getItem("remember");-->
+<!--     console.log(data);-->
+<!--     var username=sessionStorage.getItem("username");-->
+<!--     var password=sessionStorage.getItem("password");-->
+<!--     -->
+
+<!--}-->
+
+function chk(event){
+<!--  var tag=$(document.getElementById("checkbox1"));-->
+<!--  console.log(tag);-->
+	var tag=$("#checkbox1").prop("checked");
+    console.log(tag);
+    if(tag==true) localStorage.remember = "Yes";
+    else localStorage.remember = "No";
+
+	var data=localStorage.getItem("remember");
+	data=localStorage.getItem("remember");
+	console.log(data);
+
+
+<!--    window.location.href="./loginnow1.html";-->
+<!--  $.getJSON("./api/addToCart?bookId="+bookId,function(message){-->
+<!--     console.log(message);-->
+<!--  });-->
+}
+
+</script>
 </html>
 

@@ -27,6 +27,8 @@ public class ListObjectApi extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         try {
             List<Object> objects = ObjectRepo.getInstance().getAll();
+            System.out.println(objects.get(0).getUser());
+            System.out.println(objects.get(0).getTag());
             response.setContentType("application/json;charset=UTF-8");
             try(Writer writer=response.getWriter()){
                 this.writeJsonByJackson(response.getWriter(),objects);

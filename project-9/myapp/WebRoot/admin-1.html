@@ -21,36 +21,36 @@
 </head>
 
 <body>
-  <!-- header -->
-  <header class="shadow-bottom sticky-top bg-white">
-    <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container">
-        <a class="navbar-brand px-2" href="index.html">Dot</a>
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
-          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<!--Main Navigation-->
+<header>
+  <!-- Intro settings -->
+  <style>
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 100px;
+      }
+    </style>
 
-        <div class="collapse navbar-collapse text-center" id="navigation">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="faq.html">Faq</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="contact.html">contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="single.html">Inner Page</a>
-            </li>
-          </ul>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="./index.html" style="font-weight:bold; font-color:black">首页</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-  </header>
-  <!-- /header -->
+    </div>
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
 
   <!-- details page -->
   <section class="single section-sm pb-0">
@@ -65,23 +65,16 @@
             <ul class="list-styled">
               <a class="back-btn" href="index.html"></a>
               <li class="sidelist">
-
-                <a href="single.html">退出登录</a>
+                <a href="./logout1">退出登录</a>
                 <ul>
-                  <li class="sidelist active">
-                    <a href="single.html">Requirments</a>
+                  <li class="sidelist">
+                    <a href="./borrow/table/user.html">用户管理</a>
                   </li>
                   <li class="sidelist">
-                    <a href="single.html">Install</a>
+                    <a href="./borrow/table/index.html">借取审批</a>
                   </li>
                   <li class="sidelist">
-                    <a href="single.html">Configuration</a>
-                  </li>
-                  <li class="sidelist">
-                    <a href="single.html">Customization</a>
-                  </li>
-                  <li class="sidelist">
-                    <a href="single.html">Elements</a>
+                    <a href="./borrow/table/list.html">物资管理</a>
                   </li>
                 </ul>
               </li>

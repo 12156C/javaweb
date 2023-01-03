@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** CSS Plugins Needed for the Project ** -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!--Favicon-->
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link href="assets/style.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+<!--Main Navigation-->
+<header>
+  <!-- Intro settings -->
+  <style>
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 100px;
+      }
+    </style>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="./jumbotron-template.html" style="font-weight:bold; font-color:black">返回上一页</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+  <!-- contact -->
+  <section class="section">
+    <div class="container"   >
+      <div style="text-align:center" class="row" >
+        <div class="col-12">
+          <h2 class="section-title text-primary">物资借取申请表</h2>
+          <p>查看我所选取：<a href="./borrow/table/borrow.html">已选物资</a></p>
+          <div >
+            <form action="./saveObject" method="post" style="text-align:center width:50%" id="book-group">
+              <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" placeholder="物品名称">
+              <input  style="width:50%;margin:0 auto" type="text" id="mail" name="num" placeholder="物品数量" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text" id="subject" name="org" placeholder="借用组织"
+                     class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="user" placeholder="负责人" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="time1" placeholder="借用时间" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="time2" placeholder="归还时间" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="deal" placeholder="申请时间" class="form-control mb-4 shadow rounded-0">
+<!--              <textarea style="width:50%" name="message" id="message" placeholder="Message"-->
+<!--                        class="form-control mb-4 shadow rounded-0"></textarea>-->
+<!--              <input type="submit" value="提 交 信 息">-->
+              <button type="submit" value="send" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /contact -->
+
+  <!-- footer -->
+  <footer class="section pb-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8 text-md-left text-center">
+          <p class="mb-md-0 mb-4">Copyright © 2020 Designed and Developed by <a
+              href="https://themefisher.com/">themefisher</a></p>
+        </div>
+        <div class="col-md-4 text-md-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i
+                  class="ti-facebook"></i></a></li>
+            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i
+                  class="ti-twitter-alt"></i></a></li>
+            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i class="ti-github"></i></a>
+            </li>
+            <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="#"><i
+                  class="ti-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /footer -->
+
+  <!-- ** JS Plugins Needed for the Project ** -->
+  <!-- jquiry -->
+  <script src="plugins/jquery/jquery-1.12.4.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <!-- match-height JS -->
+  <script src="plugins/match-height/jquery.matchHeight-min.js"></script>
+  <!-- Main Script -->
+  <script src="assets/script.js"></script>
+</body>
+
+</html>
+<script>
+$(document).ready(function(){
+    $.getJSON("./api/updateBook",function(books){
+        refreshBookList(books);
+    });
+});
+
+function refreshBookList(books){
+    for(var i=0;i<books.length;i++){
+       var book=books[i];
+       console.log(book);
+       $("#book-group").append(`
+              <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" placeholder="${book.name}">
+              <input  style="width:50%;margin:0 auto" type="text" id="mail" name="author" placeholder="${book.author}" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text" id="subject" name="price" placeholder="${book.price}"
+                     class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="describe" placeholder="${book.describe}" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="picture" placeholder="${book.picture}" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="time2" placeholder="归还时间" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="deal" placeholder="申请时间" class="form-control mb-4 shadow rounded-0">
+              <button type="submit" value="send" class="btn btn-primary">Send</button>
+
+
+
+
+
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="./upload/${book.picture}" height="150" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">${book.name}</h5>
+                <p class="card-text">位置:<font style="font-weight:bold"> ${book.author}</font> </p>
+                <p class="card-text">数量:<font color="red"> ${book.price}${book.describe}</font> </p>
+                <a href="./submit-application.html" class="btn btn-primary" bookId ="${book.id}" onclick="addToCart(event)">借用</a>
+              </div>
+          </div>
+       `)
+    }
+}
+</script>

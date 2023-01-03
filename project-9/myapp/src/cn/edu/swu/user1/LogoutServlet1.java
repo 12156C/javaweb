@@ -12,8 +12,12 @@ public class LogoutServlet1 extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session=request.getSession();
         if(session!=null){
-            session.invalidate();
+            System.out.println("---------退出登录----------");
+            session.setAttribute(LoginServlet1.LOGIN_TOKEN,"USER_LOGIN_TOKEN");
+            System.out.println(session.getAttribute("password"));
+            //session.invalidate();
         }
-        response.sendRedirect("./index.html");
+        //response.sendRedirect("#");
+        response.sendRedirect("./login-form-18/loginnow.html");
     }
 }

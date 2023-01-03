@@ -49,6 +49,35 @@
 					  </table>
 					</div>
 				</div>
+				<br><br><br><br><br><br>
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">已审批申请</h4>
+					<div class="table-wrap">
+						<table class="table">
+							<thead class="thead-primary">
+							<tr>
+								<th>物品名称</th>
+								<th>借用数量</th>
+								<th>借用组织</th>
+								<th>负责人</th>
+								<th>借用时间</th>
+								<th>归还时间</th>
+								<th>审批情况</th>
+							</tr>
+							</thead>
+							<tbody id="object-group1">
+							<!--					      <tr>-->
+							<!--					        <th scope="row" class="scope" >.com</th>-->
+							<!--					        <td>1 Year</td>-->
+							<!--					        <td>$70.00</td>-->
+							<!--					        <td>$5.00</td>-->
+							<!--					        <td>$5.00</td>-->
+							<!--					        <td><a href="#" class="btn btn-primary">Sign Up</a></td>-->
+							<!--					      </tr>-->
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -64,11 +93,30 @@ $(document).ready(function(){
     $.getJSON("../../api/objects",function(objects){
         refreshObjectList(objects);
     });
+    $.getJSON("../../api/objects",function(objects){
+        refreshObjectList1(objects);
+    });
 });
-
+function deal(event){
+  var btn=$(event.target);
+  var objectId=btn.attr("objectId");
+  console.log(objectId);
+  $.getJSON("../../api/changeBook?objectId="+objectId,function(message){
+     console.log(message);
+  });
+}
+function deal1(event){
+  var btn=$(event.target);
+  var objectId=btn.attr("objectId");
+  console.log(objectId);
+  $.getJSON("../../api/refuseObject?objectId="+objectId,function(message){
+     console.log(message);
+  });
+}
 function refreshObjectList(objects){
     for(var i=0;i<objects.length;i++){
        var obj=objects[i];
+       if(obj.tag>0) continue;
        console.log(obj);
        $("#object-group").append(`
       	 <tr>
@@ -78,9 +126,72 @@ function refreshObjectList(objects){
 			<td>${obj.user}</td>
 			<td>${obj.time1}</td>
 			<td>${obj.time2}</td>
-			<td><a href="#" class="btn btn-primary">同意</a></td>
+			<td>
+				<a href="./index.html" class="btn btn-primary" objectId ="${obj.id}" onclick="deal(event)">同意</a>
+				&nbsp&nbsp
+				<a href="./index.html" style="background-color:red" class="btn btn-primary" objectId ="${obj.id}" onclick="deal1(event)">驳回</a>
+			</td>
 		</tr>
        `)
+    }
+}
+function refreshObjectList1(objects){
+    for(var i=0;i<objects.length;i++){
+       var obj=objects[i];
+       if(obj.tag==1){
+			$("#object-group1").append(`
+			 <tr>
+				<th scope="row" class="scope" >${obj.name}</th>
+				<td>${obj.num}</td>
+				<td>${obj.org}</td>
+				<td>${obj.user}</td>
+				<td>${obj.time1}</td>
+				<td>${obj.time2}</td>
+				<td>已同意</td>
+			</tr>
+		   `)
+       }
+       if(obj.tag==2){
+			$("#object-group1").append(`
+			 <tr>
+				<th scope="row" class="scope" >${obj.name}</th>
+				<td>${obj.num}</td>
+				<td>${obj.org}</td>
+				<td>${obj.user}</td>
+				<td>${obj.time1}</td>
+				<td>${obj.time2}</td>
+				<td>数量不足</td>
+			</tr>
+		   `)
+       }
+       if(obj.tag==3){
+			$("#object-group1").append(`
+			 <tr>
+				<th scope="row" class="scope" >${obj.name}</th>
+				<td>${obj.num}</td>
+				<td>${obj.org}</td>
+				<td>${obj.user}</td>
+				<td>${obj.time1}</td>
+				<td>${obj.time2}</td>
+				<td>审批失败</td>
+			</tr>
+		   `)
+       }
+       if(obj.tag==4){
+			$("#object-group1").append(`
+			 <tr>
+				<th scope="row" class="scope" >${obj.name}</th>
+				<td>${obj.num}</td>
+				<td>${obj.org}</td>
+				<td>${obj.user}</td>
+				<td>${obj.time1}</td>
+				<td>${obj.time2}</td>
+				<td>已驳回</td>
+			</tr>
+		   `)
+       }
+       console.log(obj);
+
     }
 }
 </script>

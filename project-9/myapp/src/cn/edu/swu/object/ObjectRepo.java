@@ -3,6 +3,8 @@ package cn.edu.swu.object;
 import cn.edu.swu.book.Book;
 import cn.edu.swu.db.DBEngine;
 import cn.edu.swu.db.RecordVisitor;
+import cn.edu.swu.user.User;
+import cn.edu.swu.user.UserRepo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,6 +51,15 @@ public class ObjectRepo {
         String sql=String.format(template,id);
         DBEngine.getInstance().execute(sql);
     }
+
+    public void dealObject(Long id,int tag) throws SQLException {
+        String template="UPDATE `object` SET `tag`= %s " +
+                "WHERE `id`=%s";
+        String sql=String.format(template,tag,id);
+        System.out.println(sql);
+        DBEngine.getInstance().execute(sql);
+    }
+
 //    public Book visit(ResultSet rs) throws SQLException {
 //        Book book=new Book();
 //        book.setId(rs.getLong("id"));
@@ -59,7 +70,7 @@ public class ObjectRepo {
 //        return book;
 //    }
     public List<Object> getAll() throws SQLException {
-        String sql="SELECT `id`,`name`,`num`,`org`,`user`,`time1`,`time2`,`deal` FROM `object`";
+        String sql="SELECT `id`,`name`,`num`,`org`,`user`,`time1`,`time2`,`deal`,`tag` FROM `object`";
         return DBEngine.getInstance().query(sql, new RecordVisitor<Object>() {
             @Override
             public Object visit(ResultSet rs) throws SQLException {
@@ -68,6 +79,8 @@ public class ObjectRepo {
         });
 
     }
+
+
 
     public Object getById(String id) throws SQLException {
         String sql="SELECT * FROM `object` WHERE `id`=%s";
@@ -92,6 +105,7 @@ public class ObjectRepo {
         object.setTime1(rs.getString("time1"));
         object.setTime2(rs.getString("time1"));
         object.setDeal(rs.getString("deal"));
+        object.setTag(rs.getInt("tag"));
         return object;
     }
 

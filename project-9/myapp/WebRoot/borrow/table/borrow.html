@@ -22,16 +22,14 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="text-center mb-4">物资借取申请</h4>
+					<h4 class="text-center mb-4">已选物资列表</h4>
 					<div class="table-wrap">
 						<table class="table">
 					    <thead class="thead-primary">
 					      <tr>
 					        <th>物品名称</th>
 					        <th>存放位置</th>
-					        <th>物品数量</th>
-					        <th>修改</th>
-					        <th>删除</th>
+					        <th>物品总数</th>
 <!--					        <th>归还时间</th>-->
 <!--							  <th>审批</th>-->
 					      </tr>
@@ -75,8 +73,6 @@ function refreshBookList(books){
 			<th scope="row" class="scope" >${book.name}</th>
 			<td>${book.author}</td>
 			<td>${book.price}${book.describe}</td>
-			<td><a href='../../deleteBook?id=%s'><img src="./images/edit.png" width="20"></a></td>
-			<td><a href='../../updateBook?id=%s'><img src="./images/delete.png" width="20"></a></td>
 		</tr>
        `)
     }

@@ -85,7 +85,6 @@ public class SaveBookServlet extends HttpServlet {
     private Book getBookFromRequest(HttpServletRequest request) throws Exception {
 
         if (!ServletFileUpload.isMultipartContent(request)) {
-              System.out.println("我操");
 //            String id=request.getParameter("id");
 //            String name=request.getParameter("name");
 //            String author=request.getParameter("author");
