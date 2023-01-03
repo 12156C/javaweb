@@ -12,21 +12,31 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebFilter("/jumbotron-template.html")
+@WebFilter("/*")
 public class AuthFilter1 extends HttpFilter {
     public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpSession session=request.getSession();
         System.out.println("auth Filter");
-
         String uri=request.getRequestURI();
         System.out.println(uri);
-
-
-
-        if(uri.endsWith("login.html")||uri.endsWith("index.html")||
-                uri.endsWith("png")||uri.endsWith("css")||
-                uri.endsWith("jpg")||uri.endsWith("login")||uri.endsWith("myapp/")||
-                uri.endsWith("verifyCode")||uri.endsWith("api/books")){
+        if(uri.endsWith("login.html")||
+                uri.endsWith("index.html")||
+                uri.endsWith("office.html")||
+                uri.endsWith("faq.html.html")||
+                uri.endsWith("fonts")||
+                uri.endsWith("loginnow.html")||
+                uri.endsWith("loginnow1.html")||
+                uri.endsWith("register.html")||
+                uri.endsWith("/register")||
+                uri.endsWith("login1")||
+                uri.endsWith("login")||
+                uri.endsWith("remember1")||
+                uri.endsWith("png")||
+                uri.endsWith("css")||
+                uri.endsWith("jpg")||
+                uri.endsWith("js")||
+                uri.endsWith("myapp/")||
+                uri.endsWith("verifyCode")){
             chain.doFilter(request,response);
             return;
         }

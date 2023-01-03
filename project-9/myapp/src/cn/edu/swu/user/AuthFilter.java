@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebFilter("/login.html")
+@WebFilter("/*")
 public class AuthFilter extends HttpFilter {
     public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpSession session=request.getSession();
@@ -22,27 +22,81 @@ public class AuthFilter extends HttpFilter {
         System.out.println(uri);
 
 
-
-        if(uri.endsWith("login.html")||uri.endsWith("index.html")||
-                uri.endsWith("png")||uri.endsWith("css")||
-                uri.endsWith("jpg")||uri.endsWith("login")||uri.endsWith("myapp/")||
-                uri.endsWith("verifyCode")||uri.endsWith("api/books")){
-            chain.doFilter(request,response);
-            return;
-        }
-
-        if(session==null){
-            response.sendRedirect("./login-form-18/loginnow1.html");
-            System.out.println("auth failed");
-        } else{
-            Boolean toke=(Boolean) session.getAttribute(LoginServlet.LOGIN_TOKEN);
-            if(toke==Boolean.TRUE){
-                System.out.println("登陆验证成功");
-                chain.doFilter(request,response);
-            } else {
+        if(uri.endsWith("admin-1.html")||uri.endsWith("/register")){
+            System.out.println("**************已经被拦截啦");
+            if(session==null){
                 response.sendRedirect("./login-form-18/loginnow1.html");
                 System.out.println("auth failed");
+            } else{
+                if(session.getAttribute(LoginServlet.LOGIN_TOKEN)==Boolean.TRUE){
+                    response.sendRedirect("./login-form-18/loginnow1.html");
+                    System.out.println("auth failed");
+                } else {
+                    String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
+                    if(token.equals("123")){
+                        System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
+                        System.out.println("***********登陆验证成功");
+                        chain.doFilter(request,response);
+                    }
+                    else{
+                        response.sendRedirect("./login-form-18/loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+
+                }
             }
-        }
+
+        }else if(uri.endsWith("register.html")){
+            System.out.println("**************已经被拦截啦");
+            System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
+            if(session==null){
+                response.sendRedirect("./loginnow1.html");
+                System.out.println("auth failed");
+            } else{
+                if(session.getAttribute(LoginServlet.LOGIN_TOKEN)==Boolean.TRUE){
+                    response.sendRedirect("./loginnow1.html");
+                    System.out.println("auth failed");
+                } else {
+                    String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
+                    if(token.equals("123")){
+                        System.out.println("***********登陆验证成功");
+                        chain.doFilter(request,response);
+                    }
+                    else{
+                        response.sendRedirect("./loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+
+                }
+            }
+        } else if(uri.endsWith("list.html")){
+            System.out.println("**************已经被拦截啦");
+            System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
+            if(session==null){
+                response.sendRedirect("../../login-form-18/loginnow1.html");
+                System.out.println("auth failed");
+            } else{
+                if(session.getAttribute(LoginServlet.LOGIN_TOKEN)==Boolean.TRUE){
+                    response.sendRedirect("../../login-form-18/loginnow1.html");
+                    System.out.println("auth failed");
+                } else {
+                    String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
+                    if(token.equals("123")){
+                        System.out.println("***********登陆验证成功");
+                        chain.doFilter(request,response);
+                    }
+                    else{
+                        response.sendRedirect("../../login-form-18/loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+
+                }
+            }
+        }else{
+                chain.doFilter(request,response);
+                return;
+            }
+
+
     }
 }

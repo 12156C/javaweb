@@ -106,12 +106,14 @@
 
 	</body>
 <script>
+
 $(document).ready(function(){
 	$.getJSON("../api/remember1",function(user1s){
 	console.log(user1s[0]);
 			refreshBookList(user1s);
 	});
 });
+
 function refreshBookList(user1s){
 	   var user1=user1s[0];
        console.log(user1);

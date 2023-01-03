@@ -82,6 +82,9 @@ function addToCart1(event){
   var btn=$(event.target);
   var bookId=btn.attr("bookId");
   console.log(bookId);
+  sessionStorage.setItem("bookId",bookId);
+  var data=sessionStorage.getItem("bookId");
+  console.log(data);
 <!--  window.location.href="../../updateBook?bookId=${bookId}";-->
 <!--  $.getJSON("../../updateBook?bookId="+bookId,function(message){-->
 <!--     console.log(message);-->
@@ -96,7 +99,8 @@ function refreshBookList(books){
 			<th scope="row" class="scope" >${book.name}</th>
 			<td>${book.author}</td>
 			<td>${book.price}${book.describe}</td>
-			<td><a href="../../updateBook?bookId=${book.id}"><img src="./images/edit.png" width="20" bookId ="${book.id}" onclick="addToCart1(event)"></a></td>
+<!--			"../../updateBook?bookId=${book.id}"-->
+			<td><a href="../../update-book.html"><img src="./images/edit.png" width="20" bookId ="${book.id}" onclick="addToCart1(event)"></a></td>
 <!--			  -->
 			<td><a href="./list.html"><img src="./images/delete.png" width="20"  bookId ="${book.id}" onclick="addToCart(event)"></a></td>
 		</tr>

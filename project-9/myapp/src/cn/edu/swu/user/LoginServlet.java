@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
         if(code==null || !code.equals(verifyCode)){
             //不考虑大小写code.equalsIgnoreCase()
             System.out.println("验证码错误");
-            response.sendRedirect("./login.html");
+            response.sendRedirect("./login-form-18/loginnow1.html");
             return;
         }
 
@@ -56,9 +56,9 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("用户名密码正确");
                 HttpSession session=request.getSession();
                 session.setAttribute(LOGIN_TOKEN,"123");
-                response.sendRedirect("./admin.html");
+                response.sendRedirect("./admin-1.html");
             } else{
-                response.sendRedirect("./index-simple.html");
+                response.sendRedirect("./login-form-18/loginnow1.html");
             }
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);

@@ -42,7 +42,7 @@
       <div class="collapse navbar-collapse" id="navbarExample01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="./jumbotron-template.html" style="font-weight:bold; font-color:black">返回上一页</a>
+            <a class="nav-link" aria-current="page" href="./borrow/table/list.html" style="font-weight:bold; font-color:black">返回上一页</a>
           </li>
         </ul>
       </div>
@@ -57,22 +57,12 @@
     <div class="container"   >
       <div style="text-align:center" class="row" >
         <div class="col-12">
-          <h2 class="section-title text-primary">物资借取申请表</h2>
-          <p>查看我所选取：<a href="./borrow/table/borrow.html">已选物资</a></p>
+          <h2 class="section-title text-primary">物资信息更新表</h2>
+<!--          <p>查看我所选取：<a href="./borrow/table/borrow.html">已选物资</a></p>-->
           <div >
-            <form action="./saveObject" method="post" style="text-align:center width:50%" id="book-group">
-              <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" placeholder="物品名称">
-              <input  style="width:50%;margin:0 auto" type="text" id="mail" name="num" placeholder="物品数量" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text" id="subject" name="org" placeholder="借用组织"
-                     class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="user" placeholder="负责人" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="time1" placeholder="借用时间" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="time2" placeholder="归还时间" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="deal" placeholder="申请时间" class="form-control mb-4 shadow rounded-0">
-<!--              <textarea style="width:50%" name="message" id="message" placeholder="Message"-->
-<!--                        class="form-control mb-4 shadow rounded-0"></textarea>-->
-<!--              <input type="submit" value="提 交 信 息">-->
-              <button type="submit" value="send" class="btn btn-primary">Send</button>
+            <form action="./saveBook" method="post" enctype="multipart/form-data" style="text-align:center width:50%" id="book-group">
+
+
             </form>
           </div>
 
@@ -121,7 +111,8 @@
 </html>
 <script>
 $(document).ready(function(){
-    $.getJSON("./api/updateBook",function(books){
+    var data=sessionStorage.getItem("bookId");
+    $.getJSON("./api/updateBook?bookId="+data,function(books){
         refreshBookList(books);
     });
 });
@@ -130,36 +121,17 @@ function refreshBookList(books){
     for(var i=0;i<books.length;i++){
        var book=books[i];
        console.log(book);
+       var load="./upload/"+book.picture;
+       console.log(load);
        $("#book-group").append(`
-              <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" placeholder="${book.name}">
-              <input  style="width:50%;margin:0 auto" type="text" id="mail" name="author" placeholder="${book.author}" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text" id="subject" name="price" placeholder="${book.price}"
+              <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="id" name="id" value="${book.id}">
+              <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" value="${book.name}">
+              <input  style="width:50%;margin:0 auto" type="text" id="mail" name="author" value="${book.author}" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text" id="subject" name="price" value="${book.price}"
                      class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="describe" placeholder="${book.describe}" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="picture" placeholder="${book.picture}" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="time2" placeholder="归还时间" class="form-control mb-4 shadow rounded-0">
-              <input  style="width:50%;margin:0 auto" type="text"  name="deal" placeholder="申请时间" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="text"  name="describe" value="${book.describe}" class="form-control mb-4 shadow rounded-0">
+              <input  style="width:50%;margin:0 auto" type="file"  name="picture" value="./upload/8935ba14-e1ed-46d4-9571-f2885800dcfa.jpg" class="form-control mb-4 shadow rounded-0">
               <button type="submit" value="send" class="btn btn-primary">Send</button>
-
-
-
-
-
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="./upload/${book.picture}" height="150" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">${book.name}</h5>
-                <p class="card-text">位置:<font style="font-weight:bold"> ${book.author}</font> </p>
-                <p class="card-text">数量:<font color="red"> ${book.price}${book.describe}</font> </p>
-                <a href="./submit-application.html" class="btn btn-primary" bookId ="${book.id}" onclick="addToCart(event)">借用</a>
-              </div>
-          </div>
        `)
     }
 }
