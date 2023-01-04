@@ -166,7 +166,6 @@ $(document).ready(function(){
         refreshBookList(books);
     });
 });
-
 function addToCart(event){
   var btn=$(event.target);
   var bookId=btn.attr("bookId");
@@ -175,7 +174,6 @@ function addToCart(event){
      console.log(message);
   });
 }
-
 function refreshBookList(books){
     for(var i=0;i<books.length;i++){
        var book=books[i];

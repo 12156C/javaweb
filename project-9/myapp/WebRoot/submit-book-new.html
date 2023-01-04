@@ -57,17 +57,17 @@
   <div class="container"   >
     <div style="text-align:center" class="row" >
       <div class="col-12">
-        <h2 class="section-title text-primary">物资借取申请表</h2>
+        <h2 class="section-title text-primary">添加物资</h2>
 <!--        <p>查看我所选取：<a href="./borrow/table/borrow.html">已选物资</a></p>-->
         <div>
           <form  action="./saveBook" method="post" enctype="multipart/form-data" style="text-align:center width:50%" id="book-group">
-            <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" placeholder="${book.name}">
-            <input  style="width:50%;margin:0 auto" type="text" id="mail" name="author" placeholder="${book.author}" class="form-control mb-4 shadow rounded-0">
-            <input  style="width:50%;margin:0 auto" type="text" id="subject" name="price" placeholder="${book.price}"
+            <input  style="width:50%;margin:0 auto" class="form-control mb-4 shadow rounded-0"  type="text" id="name" name="name" placeholder="物品名称">
+            <input  style="width:50%;margin:0 auto" type="text" id="mail" name="author" placeholder="物品位置" class="form-control mb-4 shadow rounded-0">
+            <input  style="width:50%;margin:0 auto" type="text" id="subject" name="price" placeholder="物品数量"
                     class="form-control mb-4 shadow rounded-0">
-            <input  style="width:50%;margin:0 auto" type="text"  name="describe" placeholder="${book.describe}" class="form-control mb-4 shadow rounded-0">
-            <input  style="width:50%;margin:0 auto" type="file"  name="picture" placeholder="${book.picture}" class="form-control mb-4 shadow rounded-0">
-            <button type="submit" value="send" class="btn btn-primary">Send</button>
+            <input  style="width:50%;margin:0 auto" type="text"  name="describe" placeholder="物品单位" class="form-control mb-4 shadow rounded-0">
+            <input  style="width:50%;margin:0 auto" type="file"  name="picture" placeholder="图片" class="form-control mb-4 shadow rounded-0">
+            <button type="submit" value="send" class="btn btn-primary">添加</button>
           </form>
         </div>
       </div>

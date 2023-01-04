@@ -17,10 +17,7 @@ import java.sql.SQLException;
 public class LoginServlet1 extends HttpServlet {
     public final static String LOGIN_TOKEN="USER_LOGIN_TOKEN";
 
-
-
     public void doGet(HttpServletRequest request ,HttpServletResponse response) throws IOException {
-
         this.doPost(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -29,7 +26,6 @@ public class LoginServlet1 extends HttpServlet {
         String remember=request.getParameter("remember");
         System.out.println(remember);
         HttpSession session=request.getSession();
-
         if(remember==null){
             System.out.println("-------------不保存--------------");
             session.setAttribute("username","");
@@ -65,9 +61,6 @@ public class LoginServlet1 extends HttpServlet {
         String userName=request.getParameter("user");
         String password=request.getParameter("password");
         String code=request.getParameter("code");
-
-
-
         String verifyCode=(String) request.getSession(true).getAttribute(ValidateCodeServlet.LOGIN_VERIFY_CODE);
         if(code==null || !code.equals(verifyCode)){
             System.out.println("3");
@@ -79,22 +72,9 @@ public class LoginServlet1 extends HttpServlet {
         try {
             User1 user= UserRepo1.getInstance().auth(userName,password);
             if(user!=null){
-                System.out.println("4");
                 System.out.println("用户名密码正确");
                 HttpSession session=request.getSession();
                 System.out.println(session.getAttribute("remember"));
-                String remember=(String)session.getAttribute("remember");
-//                if(remember=="on"){
-//                    System.out.println("已保存");
-//                    session.setAttribute("username",userName);
-//                    session.setAttribute("password",password);
-//                }
-//                else{
-//                    System.out.println("未保存");
-//                    session.setAttribute("username","");
-//                    session.setAttribute("password","");
-//                }
-
                 System.out.println(userName);
                 if(userName.equals("admin")){
                     session.setAttribute(LOGIN_TOKEN,"123");
@@ -105,8 +85,7 @@ public class LoginServlet1 extends HttpServlet {
                 System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
                 response.sendRedirect("./jumbotron-template.html");
             } else{
-                System.out.println("5");
-                response.sendRedirect("./index-simple.html");//提醒密码错误
+                response.sendRedirect("./login1");
             }
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);

@@ -22,13 +22,15 @@ public class AuthFilter1 extends HttpFilter {
         if(uri.endsWith("login.html")||
                 uri.endsWith("index.html")||
                 uri.endsWith("office.html")||
-                uri.endsWith("faq.html.html")||
+                uri.endsWith("new.html")||
+                uri.endsWith("faq.html")||
                 uri.endsWith("fonts")||
                 uri.endsWith("loginnow.html")||
                 uri.endsWith("loginnow1.html")||
                 uri.endsWith("register.html")||
                 uri.endsWith("/register")||
                 uri.endsWith("login1")||
+                uri.endsWith("admin-1.html")||
                 uri.endsWith("login")||
                 uri.endsWith("remember1")||
                 uri.endsWith("png")||
@@ -45,7 +47,6 @@ public class AuthFilter1 extends HttpFilter {
             response.sendRedirect("./login-form-18/loginnow.html");
             System.out.println("auth failed");
         } else{
-            //String toke=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
             if(session.getAttribute(LoginServlet.LOGIN_TOKEN)==Boolean.TRUE||session.getAttribute(LoginServlet.LOGIN_TOKEN)=="123"){
                 System.out.println("登陆验证成功");
                 chain.doFilter(request,response);
@@ -56,3 +57,4 @@ public class AuthFilter1 extends HttpFilter {
         }
     }
 }
+

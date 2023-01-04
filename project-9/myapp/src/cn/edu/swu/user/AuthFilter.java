@@ -33,12 +33,15 @@ public class AuthFilter extends HttpFilter {
                     System.out.println("auth failed");
                 } else {
                     String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
-                    if(token.equals("123")){
+                    if(token==null){
+                        response.sendRedirect("./login-form-18/loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+                    else if(token.equals("123")){
                         System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
                         System.out.println("***********登陆验证成功");
                         chain.doFilter(request,response);
-                    }
-                    else{
+                    } else{
                         response.sendRedirect("./login-form-18/loginnow1.html");
                         System.out.println("auth failed");
                     }
@@ -46,7 +49,7 @@ public class AuthFilter extends HttpFilter {
                 }
             }
 
-        }else if(uri.endsWith("register.html")){
+        } else if(uri.endsWith("register.html")){
             System.out.println("**************已经被拦截啦");
             System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
             if(session==null){
@@ -58,18 +61,21 @@ public class AuthFilter extends HttpFilter {
                     System.out.println("auth failed");
                 } else {
                     String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
-                    if(token.equals("123")){
-                        System.out.println("***********登陆验证成功");
-                        chain.doFilter(request,response);
-                    }
-                    else{
+                    if(token==null){
                         response.sendRedirect("./loginnow1.html");
                         System.out.println("auth failed");
                     }
-
+                    else if(token.equals("123")){
+                        System.out.println("***********登陆验证成功");
+                        chain.doFilter(request,response);
+                    }else {
+                        response.sendRedirect("./loginnow1.html");
+                        System.out.println("auth failed");
+                    }
                 }
+
             }
-        } else if(uri.endsWith("list.html")){
+        } else if(uri.endsWith("list.html")||uri.endsWith("/borrow/table/index.html")){
             System.out.println("**************已经被拦截啦");
             System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
             if(session==null){
@@ -81,11 +87,14 @@ public class AuthFilter extends HttpFilter {
                     System.out.println("auth failed");
                 } else {
                     String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
-                    if(token.equals("123")){
+                    if(token==null){
+                        response.sendRedirect("../../login-form-18/loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+                    else if(token.equals("123")){
                         System.out.println("***********登陆验证成功");
                         chain.doFilter(request,response);
-                    }
-                    else{
+                    } else{
                         response.sendRedirect("../../login-form-18/loginnow1.html");
                         System.out.println("auth failed");
                     }

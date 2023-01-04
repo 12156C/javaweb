@@ -40,6 +40,12 @@ public class ListBookApi extends HttpServlet {
             writer.write(json);
     }
 
+
+
+
+
+
+
     private void writeJson(Writer writer,List<Book> books) throws IOException {
             writer.write("{");
             writer.write("\"books\":[");

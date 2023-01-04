@@ -60,15 +60,15 @@ public class SaveObjectServlet extends HttpServlet {
             message="提交信息保存失败！";
             System.out.println(e);
         }
-
-        response.setContentType("text/html;charset=UTF-8");
-        try(Writer writer=response.getWriter()){
-            String html="<center style='margin-top:5em'><h1>%s</h1></center><br>"+
-                    "<a href='./submit-book.html'><center>继续申请借用</center></a>&nbsp;&nbsp;&nbsp;" +
-                    "<a href='./borrow/table/index.html'><center>显示列表</center></a>&nbsp;&nbsp;&nbsp;" +
-                    "<a href='./index.html'><center>返回首页</center></a><br>";
-            writer.write(String.format(html,message));
-        }
+        response.sendRedirect("./jumbotron-template.html");
+//        response.setContentType("text/html;charset=UTF-8");
+//        try(Writer writer=response.getWriter()){
+//            String html="<center style='margin-top:5em'><h1>%s</h1></center><br>"+
+//                    "<a href='./submit-book.html'><center>继续申请借用</center></a>&nbsp;&nbsp;&nbsp;" +
+//                    "<a href='./borrow/table/index.html'><center>显示列表</center></a>&nbsp;&nbsp;&nbsp;" +
+//                    "<a href='./index.html'><center>返回首页</center></a><br>";
+//            writer.write(String.format(html,message));
+//        }
 
     }
 

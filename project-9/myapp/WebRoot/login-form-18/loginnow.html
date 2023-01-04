@@ -117,6 +117,8 @@ $(document).ready(function(){
 function refreshBookList(user1s){
 	   var user1=user1s[0];
        console.log(user1);
+       if(user1.user==null) user1.user="";
+       if(user1.password==null) user1.password="";
        $("#remember").append(`
 			<form action="../login1"  class="login-form">
 								<div class="form-group">
@@ -152,6 +154,22 @@ function refreshBookList(user1s){
 
 
 
+function chk(event){
+<!--  var tag=$(document.getElementById("checkbox1"));-->
+<!--  console.log(tag.prop("checked"));-->
+	var tag=$("#checkbox1").prop("checked");
+    console.log(tag);
+    if(tag==true) localStorage.remember = "Yes";
+    else localStorage.remember = "No";
+	var data=localStorage.getItem("remember");
+	data=localStorage.getItem("remember");
+	console.log(data);
+<!--    window.location.href="./loginnow1.html";-->
+<!--  $.getJSON("./api/addToCart?bookId="+bookId,function(message){-->
+<!--     console.log(message);-->
+<!--  });-->
+}
+
 
 
 
@@ -173,24 +191,6 @@ function refreshBookList(user1s){
 
 <!--}-->
 
-function chk(event){
-<!--  var tag=$(document.getElementById("checkbox1"));-->
-<!--  console.log(tag);-->
-	var tag=$("#checkbox1").prop("checked");
-    console.log(tag);
-    if(tag==true) localStorage.remember = "Yes";
-    else localStorage.remember = "No";
-
-	var data=localStorage.getItem("remember");
-	data=localStorage.getItem("remember");
-	console.log(data);
-
-
-<!--    window.location.href="./loginnow1.html";-->
-<!--  $.getJSON("./api/addToCart?bookId="+bookId,function(message){-->
-<!--     console.log(message);-->
-<!--  });-->
-}
 
 </script>
 </html>
