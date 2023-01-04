@@ -19,7 +19,6 @@ public class AccessObjectServlet extends HttpServlet {
             object=ObjectRepo.getInstance().getById(objectId);
             System.out.println(object.getName());
         } catch (SQLException e) {
-
             throw new RuntimeException(e);
         }
         if(object==null){
@@ -28,10 +27,17 @@ public class AccessObjectServlet extends HttpServlet {
         else{
             try {
                 Book book= BookRepo.getInstance().getByName(object.getName());
-                if(book.getPrice()>=object.getNum()){
+                System.out.println(object.getId());
+                System.out.println(book);
+                if(book==null){
+                    System.out.println("名称有误~~~~~~~~~~~~");
+                    ObjectRepo.getInstance().dealObject(object.getId(),5);
+                } else if(book.getPrice()>=object.getNum()){
+                    System.out.println("成功借用啦~~~~~~~~~~~~");
                     BookRepo.getInstance().changeBook(book,object.getNum());
                     ObjectRepo.getInstance().dealObject(object.getId(),1);
                 } else{
+                    System.out.println("数量不足啦~~~~~~~~~~~~");
                     ObjectRepo.getInstance().dealObject(object.getId(),2);
                 }
             } catch (SQLException e) {

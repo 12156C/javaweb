@@ -101,10 +101,36 @@ public class AuthFilter extends HttpFilter {
 
                 }
             }
-        }else{
+        }  else if(uri.endsWith("/api/objects")){
+            System.out.println("**************已经被拦截啦");
+            System.out.println(session.getAttribute(LoginServlet.LOGIN_TOKEN));
+            if(session==null){
+                response.sendRedirect("../login-form-18/loginnow1.html");
+                System.out.println("auth failed");
+            } else{
+                if(session.getAttribute(LoginServlet.LOGIN_TOKEN)==Boolean.TRUE){
+                    response.sendRedirect("../login-form-18/loginnow1.html");
+                    System.out.println("auth failed");
+                } else {
+                    String token=(String)session.getAttribute(LoginServlet.LOGIN_TOKEN);
+                    if(token==null){
+                        response.sendRedirect("../login-form-18/loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+                    else if(token.equals("123")){
+                        System.out.println("***********登陆验证成功");
+                        chain.doFilter(request,response);
+                    } else{
+                        response.sendRedirect("../login-form-18/loginnow1.html");
+                        System.out.println("auth failed");
+                    }
+
+                }
+            }
+        } else{
                 chain.doFilter(request,response);
                 return;
-            }
+        }
 
 
     }

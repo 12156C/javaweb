@@ -190,6 +190,19 @@ function refreshObjectList1(objects){
 			</tr>
 		   `)
        }
+       if(obj.tag==5){
+			$("#object-group1").append(`
+			 <tr>
+				<th scope="row" class="scope" >${obj.name}</th>
+				<td>${obj.num}</td>
+				<td>${obj.org}</td>
+				<td>${obj.user}</td>
+				<td>${obj.time1}</td>
+				<td>${obj.time2}</td>
+				<td>名称有误</td>
+			</tr>
+		   `)
+       }
        console.log(obj);
 
     }
