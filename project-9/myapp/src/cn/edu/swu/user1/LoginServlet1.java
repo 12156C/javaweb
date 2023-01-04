@@ -26,6 +26,7 @@ public class LoginServlet1 extends HttpServlet {
         String remember=request.getParameter("remember");
         System.out.println(remember);
         HttpSession session=request.getSession();
+        session.setMaxInactiveInterval(30 * 24 * 60 * 60);
         if(remember==null){
             System.out.println("-------------不保存--------------");
             session.setAttribute("username","");
